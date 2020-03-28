@@ -1,4 +1,8 @@
-// import "./modelElement.js";
+import * as tf from "@tensorflow/tfjs";
+import * as tfvis from "@tensorflow/tfjs-vis";
+import p5 from "p5";
+import colorData from "./colorData.json";
+
 let data;
 let model;
 let xs, ys;
@@ -18,14 +22,12 @@ let colors = [];
 let labels = [];
 let shortData;
 
-$.getJSON("./js/colorData.json", res => {
-	data = res;
-	shortData = { entries: [] };
-	for (let i = 0; i < 25000; i++) {
-		shortData.entries.push(data.entries[i]);
-	}
-	prepare(shortData);
-});
+data = colorData;
+shortData = { entries: [] };
+for (let i = 0; i < 25000; i++) {
+	shortData.entries.push(data.entries[i]);
+}
+prepare(shortData);
 
 function prepare(data) {
 	for (let record of data.entries) {
@@ -93,6 +95,7 @@ document.querySelector("#train").addEventListener("click", () =>
 		xs.dispose();
 		ys.dispose();
 		document.querySelector("#train").setAttribute("disabled", "true");
+		document.querySelector("#load").setAttribute("disabled", "true");
 		document.querySelector("#predict").attributes.removeNamedItem("disabled");
 	})
 );
@@ -101,10 +104,10 @@ let r, g, b;
 let w;
 let factor = 0.3;
 
-function setup() {
+const setup = p5 => {
 	const q = document.querySelector("#layers");
 	for (let i = 0; i < 1; i++) {
-		let p = createElement(
+		let p = p5.createElement(
 			"model-element",
 			`<div class="model-element"><h2>Dense (16, sigmoid)<h2></div>`
 		);
@@ -112,23 +115,23 @@ function setup() {
 		p.parent(q);
 	}
 
-	if (windowWidth >= 1100) factor = 0.4;
-	else if (windowWidth >= 670 && windowWidth < 1100) factor = 0.5;
+	if (p5.windowWidth >= 1100) factor = 0.4;
+	else if (p5.windowWidth >= 670 && p5.windowWidth < 1100) factor = 0.5;
 	else factor = 0.7;
 
-	w = windowWidth * factor;
-	const c = createCanvas(w, w);
+	w = p5.windowWidth * factor;
+	const c = p5.createCanvas(w, w);
 	c.parent("sketch-holder");
-	r = random(255);
-	g = random(255);
-	b = random(255);
-	document.querySelector("#e-i").style.backgroundColor = color(r, g, b);
-	document.querySelector(".r").style.backgroundColor = color(r, 0, 0);
-	document.querySelector(".g").style.backgroundColor = color(0, g, 0);
-	document.querySelector(".b").style.backgroundColor = color(0, 0, b);
-	let r_percent = floor((r / 255) * 100);
-	let g_percent = floor((g / 255) * 100);
-	let b_percent = floor((b / 255) * 100);
+	r = p5.random(255);
+	g = p5.random(255);
+	b = p5.random(255);
+	document.querySelector("#e-i").style.backgroundColor = p5.color(r, g, b);
+	document.querySelector(".r").style.backgroundColor = p5.color(r, 0, 0);
+	document.querySelector(".g").style.backgroundColor = p5.color(0, g, 0);
+	document.querySelector(".b").style.backgroundColor = p5.color(0, 0, b);
+	let r_percent = p5.floor((r / 255) * 100);
+	let g_percent = p5.floor((g / 255) * 100);
+	let b_percent = p5.floor((b / 255) * 100);
 	document.querySelector(
 		".r"
 	).style.backgroundImage = `linear-gradient(to right, transparent ${r_percent}%, white 0)`;
@@ -138,26 +141,26 @@ function setup() {
 	document.querySelector(
 		".b"
 	).style.backgroundImage = `linear-gradient(to right, transparent ${b_percent}%, white 0)`;
-}
+};
 
-function windowResized() {
-	if (windowWidth >= 1100) factor = 0.4;
-	else if (windowWidth >= 670 && windowWidth < 1100) factor = 0.5;
+const windowResized = p5 => {
+	if (p5.windowWidth >= 1100) factor = 0.4;
+	else if (p5.windowWidth >= 670 && p5.windowWidth < 1100) factor = 0.5;
 	else factor = 0.7;
-	w = windowWidth * factor;
-	resizeCanvas(w, w);
-}
+	w = p5.windowWidth * factor;
+	p5.resizeCanvas(w, w);
+};
 
-function draw() {
-	background(r, g, b);
+const draw = p5 => {
+	p5.background(r, g, b);
 	document.querySelector("#new").addEventListener("click", () => {
-		r = random(255);
-		g = random(255);
-		b = random(255);
-		document.querySelector("#e-i").style.backgroundColor = color(r, g, b);
-		document.querySelector(".r").style.backgroundColor = color(r, 0, 0);
-		document.querySelector(".g").style.backgroundColor = color(0, g, 0);
-		document.querySelector(".b").style.backgroundColor = color(0, 0, b);
+		r = p5.random(255);
+		g = p5.random(255);
+		b = p5.random(255);
+		document.querySelector("#e-i").style.backgroundColor = p5.color(r, g, b);
+		document.querySelector(".r").style.backgroundColor = p5.color(r, 0, 0);
+		document.querySelector(".g").style.backgroundColor = p5.color(0, g, 0);
+		document.querySelector(".b").style.backgroundColor = p5.color(0, 0, b);
 		let r_percent = (r / 255) * 100;
 		let g_percent = (g / 255) * 100;
 		let b_percent = (b / 255) * 100;
@@ -171,7 +174,15 @@ function draw() {
 			".b"
 		).style.backgroundImage = `linear-gradient(to right, transparent ${b_percent}%, white 0)`;
 	});
-}
+};
+
+const sketch = p5 => {
+	p5.setup = () => setup(p5);
+	p5.draw = () => draw(p5);
+	p5.windowResized = () => windowResized(p5);
+};
+
+new p5(sketch);
 
 document.querySelector("#predict").addEventListener("click", () => {
 	predict();
@@ -179,10 +190,10 @@ document.querySelector("#predict").addEventListener("click", () => {
 
 function predict() {
 	let label;
-	if (r == g && g == b) {
+	if (r === g && g === b) {
 		if (r <= 30 && g <= 30 && b <= 30) {
 			label = "black";
-		} else if (r == 255 && g == 255 && b == 255) {
+		} else if (r === 255 && g === 255 && b === 255) {
 			label = "white";
 		} else {
 			label = "grey-ish";
@@ -202,7 +213,7 @@ function predict() {
 }
 
 document.querySelector("#load").addEventListener("click", async () => {
-	model = await tf.loadLayersModel("./model/color-model.json");
+	model = await tf.loadLayersModel("http://localhost:3000/color-model.json");
 	document.querySelector("#train").setAttribute("disabled", "true");
 	document.querySelector("#predict").attributes.removeNamedItem("disabled");
 	document.querySelector("#load").setAttribute("disabled", "true");

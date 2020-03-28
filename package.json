@@ -3,9 +3,14 @@
 	"version": "0.0.1",
 	"description": "A color classification application",
 	"main": "index.js",
+	"directories": {
+		"public": "root"
+	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build"
+		"predeploy": "yarn build",
+		"build": "react-scripts build",
+		"deploy": "gh-pages -d build"
 	},
 	"keywords": [
 		"Color Classifier",
@@ -14,9 +19,17 @@
 		"Tensorflow",
 		"Tensorflow JS"
 	],
+	"homepage": "http://varunirani.github.io/color-classifier",
 	"author": "Varun Rustom Irani",
 	"license": "MIT",
+	"devDependencies": {
+		"gh-pages": "^2.2.0"
+	},
 	"dependencies": {
+		"@tensorflow/tfjs": "^1.7.1",
+		"@tensorflow/tfjs-vis": "^1.4.0",
+		"jquery": "^3.4.1",
+		"p5": "^1.0.0",
 		"react-scripts": "^3.4.1"
 	},
 	"browserslist": {
