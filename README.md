@@ -29,7 +29,7 @@ npm run start
 
 👤 **Varun Rustom Irani**
 
-* E-mail: [@VarunIrani](varuniranicool@gmail.com)
+* E-mail: varuniranicool@gmail.com
 * Twitter: [@IraniVarun](https://twitter.com/IraniVarun)
 * Github: [@VarunIrani](https://github.com/VarunIrani)
 
