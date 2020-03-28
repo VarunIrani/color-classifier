@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.js": "/color-classifier/static/js/main.02eac84e.chunk.js",
-    "main.js.map": "/color-classifier/static/js/main.02eac84e.chunk.js.map",
+    "main.css": "/color-classifier/static/css/main.532dc838.chunk.css",
+    "main.js": "/color-classifier/static/js/main.04776c63.chunk.js",
+    "main.js.map": "/color-classifier/static/js/main.04776c63.chunk.js.map",
     "runtime-main.js": "/color-classifier/static/js/runtime-main.495f0f6b.js",
     "runtime-main.js.map": "/color-classifier/static/js/runtime-main.495f0f6b.js.map",
+    "static/js/2.7add04b0.chunk.js": "/color-classifier/static/js/2.7add04b0.chunk.js",
+    "static/js/2.7add04b0.chunk.js.map": "/color-classifier/static/js/2.7add04b0.chunk.js.map",
     "index.html": "/color-classifier/index.html",
-    "precache-manifest.425523371e30e5af6c0e18e9ed8983bb.js": "/color-classifier/precache-manifest.425523371e30e5af6c0e18e9ed8983bb.js",
-    "service-worker.js": "/color-classifier/service-worker.js"
+    "precache-manifest.51f373f31aac672c0fc9c97ef9c8f268.js": "/color-classifier/precache-manifest.51f373f31aac672c0fc9c97ef9c8f268.js",
+    "service-worker.js": "/color-classifier/service-worker.js",
+    "static/css/main.532dc838.chunk.css.map": "/color-classifier/static/css/main.532dc838.chunk.css.map",
+    "static/js/2.7add04b0.chunk.js.LICENSE.txt": "/color-classifier/static/js/2.7add04b0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.495f0f6b.js",
-    "static/js/main.02eac84e.chunk.js"
+    "static/js/2.7add04b0.chunk.js",
+    "static/css/main.532dc838.chunk.css",
+    "static/js/main.04776c63.chunk.js"
   ]
 }
