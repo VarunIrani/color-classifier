@@ -1,34 +1,34 @@
 {
-  "name": "color-classifier",
-  "version": "1.0.0",
-  "description": "A color classification application",
-  "main": "index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
-  },
-  "keywords": [
-    "Color Classifier",
-    "Color",
-    "Machine Learning",
-    "Tensorflow",
-    "Tensorflow JS"
-  ],
-  "author": "Varun Rustom Irani",
-  "license": "MIT",
-  "dependencies": {
-    "react-scripts": "^3.4.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "color-classifier",
+	"version": "0.0.1",
+	"description": "A color classification application",
+	"main": "index.js",
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build"
+	},
+	"keywords": [
+		"Color Classifier",
+		"Color",
+		"Machine Learning",
+		"Tensorflow",
+		"Tensorflow JS"
+	],
+	"author": "Varun Rustom Irani",
+	"license": "MIT",
+	"dependencies": {
+		"react-scripts": "^3.4.1"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
