@@ -1,13 +1,7 @@
-@media (max-width: 1000px) {
-	.model-element h2 {
-		font-size: larger;
+@media (max-width: 768px) {
+	body {
+		margin-top: 5em;
 	}
-	.model-element {
-		width: 100%;
-	}
-}
-
-@media (max-width: 800px) {
 	.top-wrapper {
 		height: 20%;
 		flex-flow: column;
@@ -23,8 +17,11 @@
 		width: 12em;
 		margin-bottom: 1em;
 	}
+	#prediction {
+		margin-bottom: 1em;
+	}
 	.prediction {
-		margin-top: 2em;
+		margin-top: 4em;
 		width: 100%;
 		margin-bottom: 1em;
 	}
@@ -32,7 +29,7 @@
 		width: 100%;
 	}
 	.prediction h1 {
-		font-size: 20pt;
+		font-size: small;
 		margin-bottom: 1em;
 	}
 
@@ -50,6 +47,13 @@
 	}
 
 	.model-element h2 {
-		font-size: x-large;
+		font-size: medium;
+	}
+
+	.r,
+	.g,
+	.b {
+		width: 4em;
+		height: 4em;
 	}
 }
