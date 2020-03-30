@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/color-classifier/static/css/main.532dc838.chunk.css",
+    "main.css": "/color-classifier/static/css/main.3a9eaa05.chunk.css",
     "main.js": "/color-classifier/static/js/main.0363a9e6.chunk.js",
     "main.js.map": "/color-classifier/static/js/main.0363a9e6.chunk.js.map",
     "runtime-main.js": "/color-classifier/static/js/runtime-main.495f0f6b.js",
@@ -8,15 +8,15 @@
     "static/js/2.b80e367f.chunk.js": "/color-classifier/static/js/2.b80e367f.chunk.js",
     "static/js/2.b80e367f.chunk.js.map": "/color-classifier/static/js/2.b80e367f.chunk.js.map",
     "index.html": "/color-classifier/index.html",
-    "precache-manifest.576f38f6bc8979ee8f3d2ee53c95c9db.js": "/color-classifier/precache-manifest.576f38f6bc8979ee8f3d2ee53c95c9db.js",
+    "precache-manifest.216fb388b5cdd54ee2a0b8dbba3d1cfe.js": "/color-classifier/precache-manifest.216fb388b5cdd54ee2a0b8dbba3d1cfe.js",
     "service-worker.js": "/color-classifier/service-worker.js",
-    "static/css/main.532dc838.chunk.css.map": "/color-classifier/static/css/main.532dc838.chunk.css.map",
+    "static/css/main.3a9eaa05.chunk.css.map": "/color-classifier/static/css/main.3a9eaa05.chunk.css.map",
     "static/js/2.b80e367f.chunk.js.LICENSE.txt": "/color-classifier/static/js/2.b80e367f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.495f0f6b.js",
     "static/js/2.b80e367f.chunk.js",
-    "static/css/main.532dc838.chunk.css",
+    "static/css/main.3a9eaa05.chunk.css",
     "static/js/main.0363a9e6.chunk.js"
   ]
 }
